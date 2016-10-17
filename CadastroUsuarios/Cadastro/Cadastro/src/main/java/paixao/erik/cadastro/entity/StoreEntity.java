@@ -1,6 +1,7 @@
 package paixao.erik.cadastro.entity;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.AttributeOverride;
@@ -88,8 +89,8 @@ public class StoreEntity extends BaseEntity<Long> {
 		return dataCadastro;
 	}
 
-	public void setDataCadastro(LocalDate dataCadastro) {
-		this.dataCadastro = dataCadastro;
+	public void setDataCadastro(LocalDate date) {
+		this.dataCadastro = date;
 	}
 
 }

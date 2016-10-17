@@ -1,5 +1,6 @@
 package paixao.erik.cadastro.services;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class StoreService extends GenericService<StoreEntity, Long> {
 	@Override
 	public StoreEntity insert(@RequestBody StoreEntity store) {
 		store.setUser(this.userRepository.findByEmail(currentUser.getActiveUser().getEmail()));
-		store.setDataCadastro(new Date());
+		store.setDataCadastro(LocalDate.now());
 
 		return super.insert(store);
 	}
@@ -37,7 +38,7 @@ public class StoreService extends GenericService<StoreEntity, Long> {
 	public void update(@RequestBody StoreEntity store) {
 		validateUserRequest(store);
 
-		store.setDataCadastro(new Date());
+		store.setDataCadastro(LocalDate.now());
 
 		try {
 			super.update(store);
